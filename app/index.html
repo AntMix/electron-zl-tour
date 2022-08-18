@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../node_modules/element-plus/dist/index.css" />
+  <script src="./renderer.js"></script>
+  <title></title>
+</head>
+
+<body>
+  <div id="vueApp">
+    <div class="common-layout">
+      <el-container>
+        <el-header></el-header>
+        <el-main>
+          <el-row :gutter="20">
+            <el-col :span="4"></el-col>
+            <el-col :span="14">
+              <el-input v-model="code" placeholder="请输入商户编码" id="MerchantCode"></el-input>
+            </el-col>
+            <el-col :span="6">
+              <el-button type="primary" :disabled="!isAbleSubmit" @click="formSubmit" v-text="submitText"></el-button>
+            </el-col>
+          </el-row>
+        </el-main>
+      </el-container>
+    </div>
+  </div>
+</body>
+<script type="module" src="./index.js"></script>
+
+</html>

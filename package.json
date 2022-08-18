@@ -1,0 +1,78 @@
+{
+  "name": "zl-tour",
+  "productName": "zl-tour",
+  "description": "My Electron application description",
+  "keywords": [],
+  "main": "./app/main.js",
+  "version": "1.0.0",
+  "author": "W",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder -w",
+    "dist": "electron-builder"
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "element-plus": "^2.2.13",
+    "vue": "^3.2.37"
+  },
+  "devDependencies": {
+    "electron": "^20.0.2",
+    "electron-builder": "^23.3.3"
+  },
+  "config": {},
+  "build": {
+    "productName": "zl-tour",
+    "appId": "org.zhonglianshiji.zl-tour",
+    "directories": {
+      "output": "release"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowElevation": true,
+      "allowToChangeInstallationDirectory": true,
+      "installerIcon": "./app/logo.ico",
+      "uninstallerIcon": "./app/logo.ico",
+      "installerHeaderIcon": "./app/logo.ico",
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": false,
+      "shortcutName": "商户助手"
+    },
+    "files": [
+      "app/*"
+    ],
+    "win": {
+      "icon": "./app/logo.ico",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "dmg": {
+      "contents": [
+        {
+          "x": 410,
+          "y": 150,
+          "type": "link",
+          "path": "/Applications"
+        },
+        {
+          "x": 130,
+          "y": 150,
+          "type": "file"
+        }
+      ]
+    },
+    "mac": {
+      "icon": "./app/logo.ico"
+    },
+    "linux": {
+      "icon": "./app/logo.ico"
+    }
+  },
+  "license": "MIT"
+}
