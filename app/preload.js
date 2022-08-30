@@ -1,7 +1,10 @@
 // All of the Node.js APIs are available in the preload process.
 // It has the same sandbox as a Chrome extension.
 const axios = require('axios');
-const version = 1000
+const { shell } = require('electron')
+const path = require('path');
+const package = require(path.join(__dirname, '../package.json'))
+const version = package.versionCode
 
 // window.axiosTourBaseUrl = 'http://wx_tour.test.wifi100.com:8080/'
 window.axiosTourBaseUrl  = 'https://local.zhonglian.com/';
@@ -16,8 +19,11 @@ async function tourVersion() {
       window.close()
     }
     if (data.need_update && data.update_url) {
-      alert(`请前往更新：${data.update_url}`)
-      window.close()
+      alert(`有新的更新，请前往下载安装：${data.update_url}`)
+      shell.openExternal(data.update_url)
+      setTimeout(() => {
+        window.close()
+      }, 1000);
     }
   }).catch((error) => {
     alert('网络异常')
