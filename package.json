@@ -28,14 +28,14 @@
       "output": "release"
     },
     "nsis": {
-      "oneClick": false,
+      "oneClick": true,
       "allowElevation": true,
-      "allowToChangeInstallationDirectory": true,
+      "allowToChangeInstallationDirectory": false,
       "installerIcon": "./app/logo.ico",
       "uninstallerIcon": "./app/logo.ico",
       "installerHeaderIcon": "./app/logo.ico",
       "createDesktopShortcut": true,
-      "createStartMenuShortcut": false,
+      "createStartMenuShortcut": true,
       "shortcutName": "商户助手"
     },
     "files": [

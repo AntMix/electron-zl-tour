@@ -31,19 +31,7 @@ function createWindow() {
   // mainWindow.webContents.openDevTools()
 
   mainWindow.webContents.setWindowOpenHandler(({ url }) => {
-    if (url === 'https://life.douyin.com/p/login') {
-      return { action: 'deny' }
-    }
-    return {
-      action: 'allow',
-      overrideBrowserWindowOptions: {
-        icon: iconPath,
-        webPreferences: {
-          nodeIntegration: true,
-          preload: path.join(__dirname, 'preload_child.js')
-        }
-      }
-    }
+    return childWindowOpenHandler(url)
   })
 }
 
@@ -67,6 +55,26 @@ app.whenReady().then(() => {
 app.on('window-all-closed', function () {
   if (process.platform !== 'darwin') app.quit()
 })
+app.on('browser-window-created', function (event, window) {
+  window.webContents.setWindowOpenHandler(({ url }) => {
+    return childWindowOpenHandler(url)
+  })
+})
 
+function childWindowOpenHandler(url) {
+  if (url === 'https://life.douyin.com/p/login') {
+    return { action: 'deny' }
+  }
+  return {
+    action: 'allow',
+    overrideBrowserWindowOptions: {
+      icon: iconPath,
+      webPreferences: {
+        // nodeIntegration: true,
+        preload: path.join(__dirname, 'preload_child.js')
+      }
+    }
+  }
+}
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.

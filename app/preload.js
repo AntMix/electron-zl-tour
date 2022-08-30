@@ -3,8 +3,8 @@
 const axios = require('axios');
 const version = 1000
 
-window.axiosTourBaseUrl = 'http://wx_tour.test.wifi100.com:8080/'
-// window.axiosTourBaseUrl  = 'https://local.zhonglian.com/';
+// window.axiosTourBaseUrl = 'http://wx_tour.test.wifi100.com:8080/'
+window.axiosTourBaseUrl  = 'https://local.zhonglian.com/';
 
 axios.defaults.baseURL = window.axiosTourBaseUrl;
 
