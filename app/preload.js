@@ -7,8 +7,8 @@ const package = require(path.join(__dirname, '../package.json'))
 const version = package.versionCode
 const os = require('os')
 
-window.axiosTourBaseUrl = 'http://wx_tour.test.wifi100.com:8080/'
-// window.axiosTourBaseUrl  = 'https://local.zhonglian.com/';
+// window.axiosTourBaseUrl = 'http://wx_tour.test.wifi100.com:8080/'
+window.axiosTourBaseUrl  = 'https://local.zhonglian.com/';
 
 axios.defaults.baseURL = window.axiosTourBaseUrl;
 
