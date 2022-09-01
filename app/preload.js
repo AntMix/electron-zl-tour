@@ -5,14 +5,15 @@ const { shell } = require('electron')
 const path = require('path');
 const package = require(path.join(__dirname, '../package.json'))
 const version = package.versionCode
+const os = require('os')
 
-// window.axiosTourBaseUrl = 'http://wx_tour.test.wifi100.com:8080/'
-window.axiosTourBaseUrl  = 'https://local.zhonglian.com/';
+window.axiosTourBaseUrl = 'http://wx_tour.test.wifi100.com:8080/'
+// window.axiosTourBaseUrl  = 'https://local.zhonglian.com/';
 
 axios.defaults.baseURL = window.axiosTourBaseUrl;
 
 async function tourVersion() {
-  await axios.get('api/tools/merchant/appVersion', { params: { version: version } }).then((result) => {
+  await axios.get('api/tools/merchant/appVersion', { params: { version: version, platform: os.platform() } }).then((result) => {
     let data = result.data.data
     if (result.data.code !== 0) {
       alert(result.data.msg)

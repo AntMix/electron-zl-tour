@@ -9,7 +9,8 @@
   "author": "W",
   "scripts": {
     "start": "electron .",
-    "pack": "electron-builder -w",
+    "pack-w": "electron-builder -w",
+    "pack-m": "electron-builder -m",
     "dist": "electron-builder"
   },
   "dependencies": {
@@ -23,7 +24,7 @@
   },
   "config": {},
   "build": {
-    "productName": "zl-tour",
+    "productName": "商户助手",
     "appId": "org.zhonglianshiji.zl-tour",
     "directories": {
       "output": "release"
@@ -54,6 +55,7 @@
       ]
     },
     "dmg": {
+      "title": "商户助手",
       "contents": [
         {
           "x": 410,
@@ -69,7 +71,8 @@
       ]
     },
     "mac": {
-      "icon": "./app/logo.ico"
+      "icon": "./app/logo_mac.icns",
+      "category": "public.app-category.utilities"
     },
     "linux": {
       "icon": "./app/logo.ico"
