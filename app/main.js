@@ -3,6 +3,7 @@ const { app, BrowserWindow, Menu } = require('electron')
 
 const path = require('path');
 const iconPath = path.join(__dirname, 'logo.ico')
+const package = require(path.join(__dirname, '../package.json'))
 process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true'
 // set menu template
 const menu = Menu.buildFromTemplate([])
@@ -14,7 +15,7 @@ function createWindow() {
   const mainWindow = new BrowserWindow({
     maximizable: false,
     icon: iconPath,
-    title: '商户助手',
+    title: '商户助手 ' + package.version,
     width: 800,
     height: 300,
     webPreferences: {
