@@ -24,7 +24,7 @@ window.addEventListener('DOMContentLoaded', () => {
   setInterval(() => {
     alert('登录信息过期，请重新登录');
     window.close()
-  }, 3600 * 24 * 3)
+  }, 3600 * 1000 * 24 * 3)
 })
 
 
